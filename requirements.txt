@@ -1,0 +1,7 @@
+# Graphics
+pygame
+moderngl
+
+# Calculations
+numpy
+pandas
