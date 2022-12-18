@@ -5,3 +5,4 @@ moderngl
 # Calculations
 numpy
 pandas
+PyGLM
