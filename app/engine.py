@@ -1,7 +1,7 @@
 import pygame as pg
 import moderngl as mgl
 import sys
-
+from app.geometry import Triangle
 
 
 class GraphicsEngine():
@@ -25,15 +25,23 @@ class GraphicsEngine():
         # Timekeeping
         self.clock = pg.time.Clock()
 
+        # scene
+        self.scene = Triangle(self)
+
     def check_events(self):
         for event in pg.event.get():
             if event.type == pg.QUIT or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
+                self.scene.destroy()
                 pg.quit()
                 sys.exit()
 
     def render(self):
         # clear framebuffer
         self.ctx.clear(color=(0.08, 0.16, 0.18))
+
+        # render scene
+        self.scene.render()
+
         # swap buffers
         pg.display.flip()
 
